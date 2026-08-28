@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NeuroSync</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-wrap">
+    <div class="popup-header">
+      <span class="popup-logo" id="logo-mark">N</span>
+      <div>
+        <div class="popup-title" id="extension-name">NeuroSync</div>
+        <div class="popup-subtitle" id="extension-level">Reading Assistant</div>
+      </div>
+    </div>
+
+    <div class="popup-status">
+      <span>Reading mode</span>
+      <select id="reading-mode">
+        <option value="ask">Ask before simplifying</option>
+        <option value="always">Always simplify</option>
+        <option value="manual">Manual only</option>
+        <option value="disable">Disabled</option>
+      </select>
+    </div>
+
+    <button class="popup-btn popup-btn-primary" id="simplify-page">Simplify This Page</button>
+    <button class="popup-btn popup-btn-secondary" id="reset-page">Reset to Original</button>
+    <button class="popup-btn popup-btn-secondary" id="open-options">Settings</button>
+
+    <p class="popup-footer">Runs locally in your browser. No page content is sent anywhere.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

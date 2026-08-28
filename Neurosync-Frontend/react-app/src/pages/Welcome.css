@@ -1,0 +1,105 @@
+.page-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(91, 47, 214, 0.10), transparent),
+    radial-gradient(900px 500px at -10% 110%, rgba(124, 92, 250, 0.10), transparent),
+    var(--color-bg);
+}
+
+.welcome-hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 48px 0 80px;
+}
+
+.welcome-hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.welcome-eyebrow {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(91, 47, 214, 0.1);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.welcome-title {
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  line-height: 1.12;
+  font-weight: 800;
+  margin-bottom: 22px;
+}
+
+.welcome-highlight {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.welcome-description {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+.welcome-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.welcome-cta svg {
+  transition: transform var(--transition);
+}
+
+.welcome-cta:hover svg {
+  transform: translateX(3px);
+}
+
+.welcome-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.welcome-trust .dot { opacity: 0.5; }
+
+.welcome-illustration {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@media (max-width: 900px) {
+  .welcome-hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .welcome-illustration {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-actions { flex-direction: column; }
+  .welcome-actions .btn { width: 100%; }
+}

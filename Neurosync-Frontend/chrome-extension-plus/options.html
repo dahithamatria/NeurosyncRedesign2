@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NeuroSync Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main class="options-wrap">
+    <header class="options-header">
+      <span class="options-logo">N</span>
+      <div>
+        <h1 id="extension-name">NeuroSync Settings</h1>
+        <p>Personalize how pages are simplified and displayed.</p>
+      </div>
+    </header>
+
+    <section class="options-card">
+      <h2>Reading Mode</h2>
+      <div class="options-row">
+        <label for="readingMode">When should pages be simplified?</label>
+        <select id="readingMode">
+          <option value="ask">Ask before simplifying</option>
+          <option value="always">Always simplify</option>
+          <option value="manual">Manual only</option>
+          <option value="disable">Disabled</option>
+        </select>
+      </div>
+      <div class="options-row">
+        <label for="simplificationLevel">Simplification level</label>
+        <select id="simplificationLevel">
+          <option value="basic">Basic — simplest possible English</option>
+          <option value="plus">Plus — moderate simplification</option>
+          <option value="smart">Smart — minimal, keeps technical terms</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="options-card">
+      <h2>Accessibility</h2>
+      <div class="options-row">
+        <label for="fontSize">Font size</label>
+        <select id="fontSize">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="xlarge">Extra Large</option>
+        </select>
+      </div>
+      <div class="options-row">
+        <label for="lineHeight">Line height</label>
+        <select id="lineHeight">
+          <option value="compact">Compact</option>
+          <option value="normal">Normal</option>
+          <option value="spacious">Spacious</option>
+        </select>
+      </div>
+      <div class="options-row">
+        <label for="readingWidth">Reading width</label>
+        <select id="readingWidth">
+          <option value="narrow">Narrow</option>
+          <option value="normal">Normal</option>
+          <option value="wide">Full width</option>
+        </select>
+      </div>
+      <div class="options-row">
+        <label for="theme">Theme</label>
+        <select id="theme">
+          <option value="light">Light</option>
+          <option value="dark">Dark (inverted)</option>
+        </select>
+      </div>
+      <div class="options-row">
+        <label for="fontFamily">Font selection</label>
+        <select id="fontFamily">
+          <option value="default">Default</option>
+          <option value="serif">Serif</option>
+          <option value="mono">Monospace</option>
+        </select>
+      </div>
+      <div class="options-row">
+        <label for="letterSpacing">Letter spacing</label>
+        <select id="letterSpacing">
+          <option value="normal">Normal</option>
+          <option value="wide">Wide</option>
+          <option value="wider">Wider</option>
+        </select>
+      </div>
+      <div class="options-row options-toggle-row">
+        <label for="dyslexicFont">Dyslexia-friendly font</label>
+        <input type="checkbox" id="dyslexicFont" />
+      </div>
+      <div class="options-row options-toggle-row">
+        <label for="highlightLine">Reading Focus Mode (highlight line on hover)</label>
+        <input type="checkbox" id="highlightLine" />
+      </div>
+      <div class="options-row options-toggle-row">
+        <label for="readingRuler">Reading ruler (follows cursor)</label>
+        <input type="checkbox" id="readingRuler" />
+      </div>
+    </section>
+
+    <section class="options-card">
+      <h2>Reading Enhancements</h2>
+      <div class="options-row options-toggle-row">
+        <label for="highlightKeywords">Highlight important keywords</label>
+        <input type="checkbox" id="highlightKeywords" />
+      </div>
+      <div class="options-row options-toggle-row">
+        <label for="boldFirstWord">Bold first word of each sentence</label>
+        <input type="checkbox" id="boldFirstWord" />
+      </div>
+      <div class="options-row options-toggle-row">
+        <label for="readingEmphasis">Reading Emphasis mode (bionic-style bolding)</label>
+        <input type="checkbox" id="readingEmphasis" />
+      </div>
+      <div class="options-row">
+        <label for="popupSensitivity">Popup sensitivity</label>
+        <select id="popupSensitivity">
+          <option value="low">Low — only clear difficulty triggers a popup</option>
+          <option value="medium">Medium — balanced (recommended)</option>
+          <option value="high">High — prompts sooner and more often</option>
+        </select>
+      </div>
+    </section>
+
+    <button class="options-save" id="save">Save Settings</button>
+    <p class="options-saved" id="saved-msg">Saved ✓</p>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

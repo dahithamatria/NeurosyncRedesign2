@@ -1,0 +1,98 @@
+// NeuroSync backend schema.
+// Mirrors what the actual redesigned frontend needs:
+// - auth (Signup/Login pages)
+// - per-user reading/display preferences (PreferencesContext + Settings)
+// - the demographic intake form (Personalize page)
+// - saved screening results (Result page -> history.js -> Dashboard.jsx)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  settings           UserSettings?
+  personalization    PersonalizationProfile?
+  assessments        Assessment[]
+  passwordResetToken PasswordResetToken?
+
+  @@index([email])
+}
+
+// Maps 1:1 to PreferencesContext.jsx (dark mode / dyslexic font / font size)
+// plus the extra accessibility toggles described for a Settings screen.
+model UserSettings {
+  id            String   @id @default(uuid())
+  userId        String   @unique
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  darkMode      Boolean  @default(false)
+  dyslexicFont  Boolean  @default(false)
+  fontSize      String   @default("medium") // small | medium | large | xlarge
+  lineSpacing   String   @default("normal")
+  letterSpacing String   @default("normal")
+  highContrast  Boolean  @default(false)
+  reduceMotion  Boolean  @default(false)
+  readingRuler  Boolean  @default(false)
+
+  updatedAt     DateTime @updatedAt
+}
+
+// Maps 1:1 to the Personalize.jsx intake form.
+model PersonalizationProfile {
+  id                 String   @id @default(uuid())
+  userId             String   @unique
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  age                Int?
+  gender             String?
+  education          String?
+  nativeLanguage     String?
+  readingFrequency   String?
+  glasses            String?
+  diagnosedDyslexia  String?
+
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+// Maps to what Result.jsx saves via history.js, and what Dashboard.jsx reads.
+model Assessment {
+  id                   String   @id @default(uuid())
+  userId               String
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  totalCorrect         Int
+  totalScored          Int
+  totalPercent         Int
+  categoryScores       Json     // { [category]: { correct, total, percent } }
+  tier                 String   // "Level 1" | "Level 2" | "Level 3"
+  supportLevel         String   // e.g. "Moderate Reading Assistance"
+  recommendedExtension String   // e.g. "EasyRead Plus"
+  readingSpeed         Int      @default(0) // words per minute
+  timeTakenSeconds     Int      @default(0)
+
+  createdAt            DateTime @default(now())
+
+  @@index([userId, createdAt])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}

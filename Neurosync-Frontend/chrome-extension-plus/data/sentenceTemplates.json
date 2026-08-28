@@ -1,0 +1,32 @@
+[
+  {
+    "original": "The committee unanimously approved the implementation of the proposed environmental conservation initiative.",
+    "level1": "The group agreed. They will start a plan. The plan will protect nature.",
+    "level2": "The group all agreed to start a plan to protect nature.",
+    "level3": "The committee unanimously approved starting the proposed nature-protection plan."
+  },
+  {
+    "original": "The implementation of renewable energy solutions significantly reduces carbon emissions.",
+    "level1": "Clean energy is used. This lowers pollution a lot.",
+    "level2": "Using clean energy greatly reduces carbon pollution.",
+    "level3": "Using renewable energy significantly reduces carbon emissions."
+  },
+  {
+    "original": "Neural networks employ backpropagation for parameter optimization.",
+    "level1": "Neural networks are a kind of AI. They use a method called backpropagation. This makes them learn better.",
+    "level2": "Neural networks use backpropagation to improve their settings.",
+    "level3": "Neural networks use backpropagation to improve their learning process."
+  },
+  {
+    "original": "Prior to the commencement of the meeting, participants were requested to submit relevant documentation.",
+    "level1": "Before the meeting started. People had to hand in papers.",
+    "level2": "Before the meeting began, people were asked to hand in their papers.",
+    "level3": "Before the meeting started, participants were asked to submit relevant documents."
+  },
+  {
+    "original": "The utilization of renewable energy sources has demonstrated a marked increase in recent years.",
+    "level1": "More people use clean energy now. This has grown a lot.",
+    "level2": "The use of clean energy has grown a lot in recent years.",
+    "level3": "The use of renewable energy sources has increased notably in recent years."
+  }
+]
